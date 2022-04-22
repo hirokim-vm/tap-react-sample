@@ -1,0 +1,19 @@
+apiVersion: kpack.io/v1alpha2
+kind: ClusterBuilder
+metadata:
+  name: spa
+spec:
+  order:
+  - group:
+    - id: tanzu-buildpacks/nodejs
+    - id: tanzu-buildpacks/nginx
+  serviceAccountRef:
+    name: kp-default-repository-serviceaccount
+    namespace: kpack
+  stack:
+    kind: ClusterStack
+    name: default
+  store:
+    kind: ClusterStore
+    name: default
+  tag: harbor.emea.end2end.link/tsalm/spa-builder
