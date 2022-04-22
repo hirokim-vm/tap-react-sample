@@ -71,7 +71,8 @@ The label `apps.tanzu.vmware.com/workload-type: spa` is required for the slectio
 
 The `BP_NODE_RUN_SCRIPTS` environment variable is set to specify a script to run during build phase.
 
-Let's now apply our workload.yaml. Because the `subPath` configuration is not supported by the tanzu CLI yet and removes it if we apply our workload-yaml with `tanzu apps workload create -f workload.yaml`, let's use kubectl to deploy it.
+Let's now apply our workload.yaml. Because the `subPath` configuration is not supported by the tanzu CLI apps plugin version bundled with TAP 1.1 (it removes it if we apply our workload-yaml with `tanzu apps workload create -f workload.yaml`), let's use kubectl to deploy it.
 ```
 kubectl apply -f workload.yaml -n <your-developer-namespace>
 ```
+As an alternative you can update the tanzu CLI apps plugin to version 0.6.0 with the instructions [here](https://github.com/vmware-tanzu/apps-cli-plugin/releases/tag/v0.6.0)
